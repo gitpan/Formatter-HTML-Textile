@@ -2,12 +2,13 @@
 use ExtUtils::MakeMaker;
 WriteMakefile
 (
-          'PL_FILES' => {},
-          'INSTALLDIRS' => 'site',
           'NAME' => 'Formatter::HTML::Textile',
           'VERSION_FROM' => 'lib/Formatter/HTML/Textile.pm',
           'PREREQ_PM' => {
-                           'Text::Textile' => 0
-                         }
+                           'Test::More' => '0',
+                           'Text::Textile' => '0'
+                         },
+          'INSTALLDIRS' => 'site',
+          'PL_FILES' => {}
         )
 ;

@@ -9,6 +9,7 @@ Module::Build->new(
     license => 'perl',
     requires => {
       'Text::Textile' => 0,
+      'Test::More' => 0,
     },
     create_makefile_pl => 'traditional',
     create_readme => 1,

@@ -1,9 +1,9 @@
-use Test::Simple tests=>1;
+use Test::More tests=>2;
 use Formatter::HTML::Textile;
 
-sub debug { $ENV{DEBUG} && print STDERR @_ }
-
 my $source = <<SOURCE;
+h1. Some title
+
 start paragraph
 
 another paragraph
@@ -15,9 +15,12 @@ a http://bare.url.here. and an email\@address.com
 
 SOURCE
 
-my $dest = Formatter::HTML::Textile->format($source)."\n";
+my $formatter = Formatter::HTML::Textile->format($source);
+my $dest = $formatter->fragment."\n";
 
 my $expected = <<EXPECTED;
+<h1>Some title</h1>
+
 <p>start paragraph</p>
 
 <p>another paragraph</p>
@@ -31,10 +34,6 @@ my $expected = <<EXPECTED;
 <p>a http://bare.url.here. and an email\@address.com</p>
 EXPECTED
 
-if ($dest ne $expected) {
-    debug("dest\n====\n$dest\n=======\n");
-    debug("expected\n========\n$expected\n=======\n");
-}
+is($dest,$expected);
 
-ok($dest eq $expected);
-
+is($formatter->title, "Some title");

@@ -1,13 +1,14 @@
 --- #YAML:1.0
 name: Formatter-HTML-Textile
-version: 0.1
+version: 0.5
 author: ~
 abstract: ~
 license: perl
 requires:
+  Test::More: 0
   Text::Textile: 0
 provides:
   Formatter::HTML::Textile:
     file: lib/Formatter/HTML/Textile.pm
-    version: 0.1
-generated_by: Module::Build version 0.25
+    version: 0.5
+generated_by: Module::Build version 0.2602

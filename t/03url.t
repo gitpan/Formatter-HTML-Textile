@@ -1,16 +1,16 @@
-use Test::Simple tests=>1;
+use warnings;
+use strict;
+use Test::More tests=>4;
 use Formatter::HTML::Textile;
 
-sub debug { $ENV{DEBUG} && print STDERR @_ }
-
 my $source = '"title":http://www.example.com';
-my $dest = Formatter::HTML::Textile->format($source);
+my $formatter = Formatter::HTML::Textile->format($source);
+my $dest = $formatter->fragment;
 my $expected = '<p><a href="http://www.example.com">title</a></p>';
 
-if ($dest ne $expected) {
-    debug("source is '$source'\n");
-    debug("dest is '$dest'\n");
-    debug("expected is '$expected'\n");
-}
+is($dest, $expected);
 
-ok($dest eq $expected);
+my @links = @{ $formatter->links };
+is(@links, 1, "1 link found");
+is($links[0]->{url}, "http://www.example.com", "link correct");
+is($links[0]->{title}, "title", "title correct");
