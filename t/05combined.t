@@ -25,7 +25,6 @@ my $expected = <<EXPECTED;
 
 <p>another paragraph</p>
 
-
 <ul>
 <li>list of things with <a href="http://www.jerakeen.org">urls</a> in</li>
 <li>more things in the list</li>

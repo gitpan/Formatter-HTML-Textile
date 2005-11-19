@@ -1,14 +1,12 @@
---- #YAML:1.0
-name: Formatter-HTML-Textile
-version: 0.5
-author: ~
-abstract: ~
-license: perl
+# http://module-build.sourceforge.net/META-spec.html
+#XXXXXXX This is a prototype!!!  It will change in the future!!! XXXXX#
+name:         Formatter-HTML-Textile
+version:      0.6
+version_from: lib/Formatter/HTML/Textile.pm
+installdirs:  site
 requires:
-  Test::More: 0
-  Text::Textile: 0
-provides:
-  Formatter::HTML::Textile:
-    file: lib/Formatter/HTML/Textile.pm
-    version: 0.5
-generated_by: Module::Build version 0.2602
+    Test::More:                    0
+    Text::Textile:                 0
+
+distribution_type: module
+generated_by: ExtUtils::MakeMaker version 6.17

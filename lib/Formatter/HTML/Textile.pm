@@ -1,8 +1,11 @@
 =head1 NAME
 
-Formatter::HTML::Textile
+Formatter::HTML::Textile - Formatter to make HTML from Textile
 
 =head1 DESCRIPTION
+
+This module will format Textile input to HTML. It conforms
+with the L<Formatter> API specification, version 0.95.
 
 =head1 SYNOPSIS
 
@@ -35,8 +38,11 @@ This method returns a Formatter::HTML::Textile object.
 
 =item document()
 
-It returns a full HTML document, comprising the formatted textile source
-converted to HTML.
+It returns a full HTML document, comprising the formatted textile
+source converted to HTML. You may specify an optional C<$charset>
+parameter. This will include a HTML C<meta> element with the chosen
+character set. It will still be your responsibility to ensure that the
+document served is encoded with this character set.
 
 =item fragment()
 
@@ -58,18 +64,30 @@ Returns the title of the document
 
 L<Formatter>, L<Text::Textile>
 
+=head1 AUTHOR
+
+Originally written by Tom Insam, maintained by Kjetil Kjernsmo from
+2005-11-19.
+
 =head1 COPYRIGHT
 
-Copyright 2005 Tom Insam tom@jerakeen.org
+Copyright 2005 Tom Insam tom@jerakeen.org, 2005 Kjetil Kjernsmo,
+kjetilk@cpan.org.
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself, either Perl version 5.8.4 or,
+at your option, any later version of Perl 5 you may have available.
+
 
 =cut
+
 
 package Formatter::HTML::Textile;
 use warnings;
 use strict;
 use Carp qw( croak );
 
-our $VERSION = 0.5;
+our $VERSION = 0.6;
 
 use base qw( Text::Textile );
 
@@ -77,42 +95,49 @@ sub format {
   my $class = shift;
   my $self = ref($class) ? $class : $class->new;
   $self->{_text} = shift || "";
+  $self->{_out} = $self->process($self->{_text});
   return $self;
 }
 
 sub document {
   my $self = shift;
+  my $charset = shift;
   # TODO - holy cow this is a horrible hack. Make work, damnit. Needs docstrings,
   # etc, etc, etc.
-  return "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01//EN\">\n"
-         ."<html><head><title>"
+  my $out = "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01//EN\">\n<html><head>";  
+  if ($charset) {
+    $out .= '<meta http-equiv="Content-Type" content="text/html; charset='.$charset.'">';
+  }
+  $out .= '<title>'
          .$self->title
-         ."</title></head><body>"
+         .'</title></head><body>'
          .$self->fragment
-         ."</body></html>";
+         .'</body></html>';
+  return $out;
 }
 
-# hold a list of links found
-my @links;
 
 sub fragment {
   my $self = shift;
-  $self->process($self->{_text});
+  return $self->{_out};
 }
 
-sub format_link {
-  my $self = shift;
-  my ($title, $url, $class) = @_;
-  push @links, { url => $class, title => $title };
-  return $self->SUPER::format_link(@_);
-}
+
 
 sub links {
   my $self = shift;
-  @links = ();
-  $self->fragment;
-  return \@links;
+  my @arr;
+  require HTML::TokeParser;
+  my $p = HTML::TokeParser->new(\$self->{_out});
+
+  while (my $token = $p->get_tag("a")) {
+    my $url = $token->[1]{href} || "-";
+    my $text = $p->get_trimmed_text("/a");
+    push(@arr, {url => $url, title => $text});
+  }
+  return \@arr;
 }
+
 
 sub title {
   my $self = shift;
