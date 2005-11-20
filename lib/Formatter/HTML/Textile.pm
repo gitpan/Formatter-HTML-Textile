@@ -87,7 +87,7 @@ use warnings;
 use strict;
 use Carp qw( croak );
 
-our $VERSION = 0.6;
+our $VERSION = 0.7;
 
 use base qw( Text::Textile );
 
@@ -95,7 +95,6 @@ sub format {
   my $class = shift;
   my $self = ref($class) ? $class : $class->new;
   $self->{_text} = shift || "";
-  $self->{_out} = $self->process($self->{_text});
   return $self;
 }
 
@@ -119,7 +118,7 @@ sub document {
 
 sub fragment {
   my $self = shift;
-  return $self->{_out};
+  return $self->process($self->{_text});
 }
 
 
@@ -128,7 +127,7 @@ sub links {
   my $self = shift;
   my @arr;
   require HTML::TokeParser;
-  my $p = HTML::TokeParser->new(\$self->{_out});
+  my $p = HTML::TokeParser->new(\$self->fragment);
 
   while (my $token = $p->get_tag("a")) {
     my $url = $token->[1]{href} || "-";
