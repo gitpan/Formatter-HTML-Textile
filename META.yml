@@ -1,13 +1,15 @@
 ---
 name: Formatter-HTML-Textile
-version: 1
+version: 1.01
 author:
 abstract: Formatter to make HTML from Textile
 license: perl
 requires:
   HTML::TokeParser: 0
-  Test::More: 0
   Text::Textile: 0
+build_requires:
+  Test::More: 0.47
+  Test::Signature: 1.04
 generated_by: Module::Build version 0.280801
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.2.html
@@ -15,6 +17,6 @@ meta-spec:
 provides:
   Formatter::HTML::Textile:
     file: lib/Formatter/HTML/Textile.pm
-    version: 1
+    version: 1.01
 resources:
   license: http://dev.perl.org/licenses/

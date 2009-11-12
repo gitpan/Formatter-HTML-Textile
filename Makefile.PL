@@ -6,7 +6,8 @@ WriteMakefile
           'VERSION_FROM' => 'lib/Formatter/HTML/Textile.pm',
           'PREREQ_PM' => {
                            'HTML::TokeParser' => 0,
-                           'Test::More' => 0,
+                           'Test::More' => '0.47',
+                           'Test::Signature' => '1.04',
                            'Text::Textile' => 0
                          },
           'INSTALLDIRS' => 'site',
