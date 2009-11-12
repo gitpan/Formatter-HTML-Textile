@@ -1,4 +1,6 @@
 #defaults
+^Build$
+^_build/
 ^Makefile$
 ^blib/
 ^blibdirs$

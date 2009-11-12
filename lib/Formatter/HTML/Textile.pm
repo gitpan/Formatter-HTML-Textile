@@ -71,7 +71,7 @@ Originally written by Tom Insam, maintained by Kjetil Kjernsmo from
 
 =head1 COPYRIGHT
 
-Copyright 2005 Tom Insam tom@jerakeen.org, 2005 Kjetil Kjernsmo,
+Copyright 2005 Tom Insam tom@jerakeen.org, 2005, 2009 Kjetil Kjernsmo,
 kjetilk@cpan.org.
 
 This library is free software; you can redistribute it and/or modify
@@ -87,7 +87,7 @@ use warnings;
 use strict;
 use Carp qw( croak );
 
-our $VERSION = 0.7;
+our $VERSION = 1.0;
 
 use base qw( Text::Textile );
 

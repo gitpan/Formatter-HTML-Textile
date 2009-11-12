@@ -1,20 +1,23 @@
 NAME
-    Formatter::HTML::Textile
+    Formatter::HTML::Textile - Formatter to make HTML from Textile
 
 DESCRIPTION
+    This module will format Textile input to HTML. It conforms with the
+    Formatter API specification, version 0.95.
+
 SYNOPSIS
       my $textile = <<TEXTILE;
       h1. textile document
-  
-      this is a "textile":http://textism.com/tools/textile/ document
+      
+  this is a "textile":http://textism.com/tools/textile/ document
       TEXTILE
 
       my $formatter = Formatter::HTML::Textile->format( $textile );
 
       print "title is ".$formatter->title."\n";
       print $formatter->document;
-  
-      my @links = @{ $formatter->links };
+      
+  my @links = @{ $formatter->links };
       print "Links urls: ";
       print join ", " map { $_->{url} } @links;
       print "\n";
@@ -28,7 +31,10 @@ METHODS
 
     document()
         It returns a full HTML document, comprising the formatted textile
-        source converted to HTML.
+        source converted to HTML. You may specify an optional $charset
+        parameter. This will include a HTML "meta" element with the chosen
+        character set. It will still be your responsibility to ensure that
+        the document served is encoded with this character set.
 
     fragment()
         returns a minimal HTML chunk as textile.
@@ -44,6 +50,15 @@ METHODS
 SEE ALSO
     Formatter, Text::Textile
 
+AUTHOR
+    Originally written by Tom Insam, maintained by Kjetil Kjernsmo from
+    2005-11-19.
+
 COPYRIGHT
-    Copyright 2005 Tom Insam tom@jerakeen.org
+    Copyright 2005 Tom Insam tom@jerakeen.org, 2005, 2009 Kjetil Kjernsmo,
+    kjetilk@cpan.org.
+
+    This library is free software; you can redistribute it and/or modify it
+    under the same terms as Perl itself, either Perl version 5.8.4 or, at
+    your option, any later version of Perl 5 you may have available.
 

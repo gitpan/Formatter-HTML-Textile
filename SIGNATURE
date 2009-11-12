@@ -1,5 +1,5 @@
 This file contains message digests of all files listed in MANIFEST,
-signed via the Module::Signature module, version 0.44.
+signed via the Module::Signature module, version 0.55.
 
 To verify the content in this distribution, first make sure you have
 Module::Signature installed, then type:
@@ -14,14 +14,15 @@ not run its Makefile.PL or Build.PL.
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA1
 
-SHA1 a8454253157172273d2ab264c6c9d493d870c390 Build.PL
-SHA1 da39a3ee5e6b4b0d3255bfef95601890afd80709 CHANGES
-SHA1 f23aa53ca3eb86e5253d8f8c3ca1d6f00bdf4bcb MANIFEST
-SHA1 5b081ea6d6125cf58f4ed2a0a52ca50411d72279 MANIFEST.SKIP
-SHA1 80a4db317228ddd85b66f19c0a79ed1d94a3c564 META.yml
-SHA1 fbe5e7c0442e3f3648871cb6c3e3e02138894727 Makefile.PL
-SHA1 0e34684cea711b7060a9eb954a3acc8ec78388ad README
-SHA1 00a6fd6cfafec32e317fbbe7ebd49e75c2556db8 lib/Formatter/HTML/Textile.pm
+SHA1 5848f53f34c8af3e7c52678b6362acef68843fe2 Build.PL
+SHA1 d708a020f7078eafdc37a96bf635712ee787af8a CHANGES
+SHA1 5c7b94363d3c31c76c7939bf1c295258c71eccc5 MANIFEST
+SHA1 069da708af73c2beaf02316f146ce13be36a9ceb MANIFEST.SKIP
+SHA1 bdba96448dd9d58cf3f83b70d6207d07ea9b18c5 META.yml
+SHA1 c1b1d6954fc8880b2a188089256fba397ceebf29 Makefile.PL
+SHA1 ec8fb2a72068890936f62c5f846881416ac40140 README
+SHA1 3321f634c27e775385d674344fbf6146e21a1664 lib/Formatter/HTML/Textile.pm
+SHA1 46ee956cac2ff74747fed843a515b140d61dfe05 t/00-signature.t
 SHA1 2ffa619cf0432ab80e41aa07188f31fdc7ee7afc t/01compile.t
 SHA1 35ac77fd8105566f3e795dec3fa6e89019093921 t/02paragraph.t
 SHA1 c1dce27ef29b571bde767bde1172d2630de41a1f t/03url.t
@@ -29,9 +30,9 @@ SHA1 6d6ceda17a6ab93093739077dafedf88fa7dd20d t/04list.t
 SHA1 152f8e61e8ba6318a97e3058d3d3bf952973f7ea t/05combined.t
 SHA1 952fbc8daa9324e2963d2fd0cf3faa0a69cfc205 t/06utf8.t
 -----BEGIN PGP SIGNATURE-----
-Version: GnuPG v1.4.1 (GNU/Linux)
+Version: GnuPG v1.4.9 (GNU/Linux)
 
-iD8DBQFDgQojlE/Gp2pqC7wRAp/6AJ9m/5e8w0yZqBqk85Wbxr4YVJU7PQCfQxBT
-wASGJEdg7p9VSnPnG4QCbGo=
-=daIS
+iD8DBQFK+/iylE/Gp2pqC7wRAgLfAJ9GTXNBe/s4GKlbZgIWLX9zqXAMsQCfTgJc
+OjuZzGmDs84FVQ7sQaVfGhI=
+=aV6w
 -----END PGP SIGNATURE-----

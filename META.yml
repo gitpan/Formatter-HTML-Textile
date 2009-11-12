@@ -1,12 +1,20 @@
-# http://module-build.sourceforge.net/META-spec.html
-#XXXXXXX This is a prototype!!!  It will change in the future!!! XXXXX#
-name:         Formatter-HTML-Textile
-version:      0.7
-version_from: lib/Formatter/HTML/Textile.pm
-installdirs:  site
+---
+name: Formatter-HTML-Textile
+version: 1
+author:
+abstract: Formatter to make HTML from Textile
+license: perl
 requires:
-    Test::More:                    0
-    Text::Textile:                 0
-
-distribution_type: module
-generated_by: ExtUtils::MakeMaker version 6.17
+  HTML::TokeParser: 0
+  Test::More: 0
+  Text::Textile: 0
+generated_by: Module::Build version 0.280801
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.2.html
+  version: 1.2
+provides:
+  Formatter::HTML::Textile:
+    file: lib/Formatter/HTML/Textile.pm
+    version: 1
+resources:
+  license: http://dev.perl.org/licenses/
