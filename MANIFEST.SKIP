@@ -12,4 +12,4 @@ tar.gz$
 .old$
 ^.svn/
 /.svn/
-
+^Formatter-HTML-Textile-

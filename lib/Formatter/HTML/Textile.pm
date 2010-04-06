@@ -5,7 +5,7 @@ Formatter::HTML::Textile - Formatter to make HTML from Textile
 =head1 DESCRIPTION
 
 This module will format Textile input to HTML. It conforms
-with the L<Formatter> API specification, version 0.95.
+with the L<Formatter> API specification, version 1.0.
 
 =head1 SYNOPSIS
 
@@ -87,7 +87,7 @@ use warnings;
 use strict;
 use Carp qw( croak );
 
-our $VERSION = 1.01;
+our $VERSION = 1.02;
 
 use base qw( Text::Textile );
 
